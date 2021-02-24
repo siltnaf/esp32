@@ -27,7 +27,7 @@ from mylib import mywifi
 
 
 
-ssid="ken_5G"
+ssid="ken_2.4G"
 password="1233211234"
 
 mywifi.connect(ssid,password)
@@ -42,7 +42,8 @@ while True:
   led.value(not led.value())
 
 
-  sleep(0.5)
+  sleep(1.5)
+
 
 
 
