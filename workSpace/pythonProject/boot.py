@@ -28,7 +28,7 @@ def web_page():
     gpio_state="ON"
   else:
     gpio_state="OFF"
-  with open ('webctrl.htm','r') as f:
+  with open ('content/webctrl.htm','r') as f:
       html=f.read()
   return html
 
