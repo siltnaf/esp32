@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Flash boot.py" type="MicroPythonConfigurationType" factoryName="MicroPython" nameIsGenerated="true" path="D:\project\G-Turn\software\esp\workSpace\pythonProject\boot.py">
+    <module name="pythonProject" />
+    <method v="2" />
+  </configuration>
+</component>
