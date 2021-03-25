@@ -20,7 +20,8 @@ class CaptivePortal:
         self.ap_if = network.WLAN(network.AP_IF)
 
         if essid is None:
-            essid = b"ESP8266-%s" % binascii.hexlify(self.ap_if.config("mac")[-3:])
+           # essid = b"ESP8266-%s" % binascii.hexlify(self.ap_if.config("mac")[-3:])
+            essid='GTurn'
         self.essid = essid
 
         self.creds = Creds()
@@ -52,8 +53,15 @@ class CaptivePortal:
             )
         )
 
+       #disable ap connection
+        if self.ap_if.active():
+            self.ap_if.active(False)
+
         # initiate the connection
-        self.sta_if.active(True)
+
+        if not self.ap_if.active():
+            self.sta_if.active(True)
+    
         self.sta_if.connect(self.creds.ssid, self.creds.password)
 
         attempts = 1
@@ -65,6 +73,7 @@ class CaptivePortal:
             else:
                 print("Connected to {:s}".format(self.creds.ssid))
                 self.local_ip = self.sta_if.ifconfig()[0]
+                print("Server connect @", self.local_ip)
                 return True
 
         print(
